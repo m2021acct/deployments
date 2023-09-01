@@ -8,7 +8,6 @@ get-winevent -FilterHashtable @{"ProviderName"="Microsoft-Windows-Security-Audit
 get-winevent -logname Microsoft-Windows-RemoteDesktopServices-RdpCoreTS/Operational -ErrorAction SilentlyContinue | Format-List -Property * | Out-String | Out-File $($logFolder + '\RemoteDesktopServices-RdpCoreTS-Operational.log') -Append
 get-winevent -logname Microsoft-Windows-RemoteDesktopServices-SessionServices/Operational -ErrorAction SilentlyContinue | Format-List -Property * | Out-String | Out-File $($logFolder + '\RemoteDesktopServices-SessionServices-Operational.log') -Append
 
-4624 4625 4776
 Start-Sleep 5
 
 Compress-Archive -Force -Path $logFolder -DestinationPath $($logFolder + '.zip')
